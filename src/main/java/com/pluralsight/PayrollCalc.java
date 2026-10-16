@@ -28,6 +28,10 @@ public class PayrollCalc {
             grossPay = ((payRate) * (hoursWorked - overTime) + (overTime * timeHalf));
             System.out.println(name + " your gross pay is " + grossPay);
         }
+        else {
+            grossPay = hoursWorked * payRate;
+            System.out.println(name + " your gross pay is " + grossPay);
+        }
 
 
     }

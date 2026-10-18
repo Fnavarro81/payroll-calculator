@@ -11,25 +11,27 @@ public class PayrollCalc {
 
         // Hours worked
         System.out.println("Enter your hours worked: ");
-        double hoursWorked = myScanner.nextDouble();
+        double regularHours = myScanner.nextDouble();
 
         // Pay Rate
         System.out.println("Enter your pay rate: ");
-        double payRate = myScanner.nextDouble();
+        double hourlyPay = myScanner.nextDouble();
 
         // Overtime Calculation
-        double overTime = 0;
-        double timeHalf = 0;
+        double overTimeHours = 0;
+        double timeHalfPay = 0;
         double grossPay = 0;
+        double regularHourlyPay = (regularHours - overTimeHours) * hourlyPay;
+        double timeHalfOTPay = overTimeHours * timeHalfPay;
 
-        if (hoursWorked > 40) {
-            overTime = hoursWorked - 40;
-            timeHalf = payRate * 1.5;
-            grossPay = ((payRate) * (hoursWorked - overTime) + (overTime * timeHalf));
+        if ( regularHours > 40) {
+            overTimeHours = regularHours - 40;
+            timeHalfPay = hourlyPay * 1.5;
+            grossPay = regularHourlyPay + timeHalfOTPay;
             System.out.println(name + " your gross pay is " + grossPay);
         }
         else {
-            grossPay = hoursWorked * payRate;
+            grossPay = regularHours * hourlyPay;
             System.out.println(name + " your gross pay is " + grossPay);
         }
 

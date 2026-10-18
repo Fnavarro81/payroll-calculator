@@ -18,15 +18,13 @@ public class PayrollCalc {
         double hourlyPay = myScanner.nextDouble();
 
         // Overtime Calculation
-        double overTimeHours = 0;
-        double timeHalfPay = 0;
+        double overTimeHours = regularHours - 40;
+        double timeHalfPay = hourlyPay * 1.5;
         double grossPay = 0;
         double regularHourlyPay = (regularHours - overTimeHours) * hourlyPay;
         double timeHalfOTPay = overTimeHours * timeHalfPay;
 
         if ( regularHours > 40) {
-            overTimeHours = regularHours - 40;
-            timeHalfPay = hourlyPay * 1.5;
             grossPay = regularHourlyPay + timeHalfOTPay;
             System.out.println(name + " your gross pay is " + grossPay);
         }
